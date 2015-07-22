@@ -47,6 +47,12 @@ To push Maven generated site to project GitHub page:-
 mvn clean test site -Pexternal-release
 ```
 
+## Important Notes
+
+* If the JaCoCo web report is not rendering properly in the GitHub page, please read this post for solution: [JaCoCo Web Report Not Rendering Properly in GitHub Pages](http://myshittycode.com/2015/07/22/jacoco-web-report-not-rendering-properly-in-github-pages/)
+* FindBugs Maven Plugin - Using 2.5.5 because 3.x targets Java 7.
+                                    
+
 ## Build Plugins 
 
 * [Surefire Maven Plugin](http://maven.apache.org/surefire/maven-surefire-plugin/) - Runs unit tests.
@@ -70,8 +76,3 @@ mvn clean test site -Pexternal-release
 * [Maven Javadoc Plugin](https://maven.apache.org/plugins/maven-javadoc-plugin/) - Generates Javadoc.
 * [Maven GPG Plugin](http://maven.apache.org/plugins/maven-gpg-plugin/) - Signs all of the project's attached artifacts with GnuPG..
 
-## Notes
-
-* FindBugs Maven Plugin - Using 2.5.5 because 3.x targets Java 7.
-
-                    
