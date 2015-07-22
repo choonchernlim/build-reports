@@ -44,7 +44,7 @@ mvn clean deploy -Pexternal-release
 To push Maven generated site to project GitHub page:-
 
 ```xml
-mvn clean site -Pexternal-release
+mvn clean test site -Pexternal-release
 ```
 
 ## Build Plugins 
@@ -69,5 +69,9 @@ mvn clean site -Pexternal-release
 * [GitHub Site Plugin](https://github.com/github/maven-plugins) - Generates Maven site in project GitHub page.
 * [Maven Javadoc Plugin](https://maven.apache.org/plugins/maven-javadoc-plugin/) - Generates Javadoc.
 * [Maven GPG Plugin](http://maven.apache.org/plugins/maven-gpg-plugin/) - Signs all of the project's attached artifacts with GnuPG..
+
+## Notes
+
+* FindBugs Maven Plugin - Using 2.5.5 because 3.x targets Java 7.
 
                     
