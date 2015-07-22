@@ -4,7 +4,7 @@ In effort to keep the actual Maven project's pom.xml concise and clean, this par
 for Maven site and Continuous Integration Servers ([Jenkins](https://jenkins-ci.org/), [SonarQube](http://www.sonarqube.org/), etc). 
 
 This parent POM also includes a profile that allows you to push:-
-* project artifacts (binary file, source code and Javadoc) to [Sonatype OSSRH (OSS Repository Hosting)](https://oss.sonatype.org) 
+* project artifacts to [Sonatype OSSRH (OSS Repository Hosting)](https://oss.sonatype.org) 
 * Maven generated site to project [GitHub](https://github.com/) page
 
 ## How to Use
@@ -12,11 +12,15 @@ This parent POM also includes a profile that allows you to push:-
 Add the following configuration to your project's pom.xml:-
 
 ```xml
-<parent>
-    <groupId>com.github.choonchernlim</groupId>
-    <artifactId>build-reports</artifactId>
-    <version>0.1.0</version>
-</parent>
+<project ...>
+    <parent>
+        <groupId>com.github.choonchernlim</groupId>
+        <artifactId>build-reports</artifactId>
+        <version>0.1.0</version>
+    </parent>
+    
+    ...
+</project>
 ```
 
 To generate Maven site with non-integration tests:-
