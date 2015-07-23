@@ -6,7 +6,7 @@
 
     <groupId>com.github.choonchernlim</groupId>
     <artifactId>build-reports</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
     <packaging>pom</packaging>
 
     <name>Build Reports</name>
@@ -139,6 +139,18 @@
                 <configuration>
                     <relativizeDecorationLinks>false</relativizeDecorationLinks>
                 </configuration>
+                <executions>
+                    <!--
+                    In Maven 3, site:attach-descriptor has been removed from the built-in lifecycle bindings,
+                    so need to explicitly define `attach-descriptor` goal to pick up src/site/site.xml.
+                    -->
+                    <execution>
+                        <id>attach-descriptor</id>
+                        <goals>
+                            <goal>attach-descriptor</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
             <!--
@@ -182,7 +194,6 @@
                         </goals>
                         <configuration>
                             <dataFile>${jacoco.reportPath}</dataFile>
-                            <!--<outputDirectory>${project.reporting.outputDirectory}/jacoco-ut</outputDirectory>-->
                         </configuration>
                     </execution>
                     <!--
@@ -212,7 +223,6 @@
                         </goals>
                         <configuration>
                             <dataFile>${jacoco.itReportPath}</dataFile>
-                            <!--<outputDirectory>${project.reporting.outputDirectory}/jacoco-it</outputDirectory>-->
                         </configuration>
                     </execution>
                 </executions>
