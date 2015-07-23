@@ -6,7 +6,7 @@
 
     <groupId>com.github.choonchernlim</groupId>
     <artifactId>build-reports</artifactId>
-    <version>0.2.0</version>
+    <version>0.2.1</version>
     <packaging>pom</packaging>
 
     <name>Build Reports</name>
@@ -431,6 +431,10 @@
                         <configuration>
                             <message>Creating site for ${project.version}</message>
                             <server>github</server>
+                            <!--
+                            Need to disable Jekyll because JaCoCo static files are stored in `.resources` directory.
+                            -->
+                            <noJekyll>true</noJekyll>
                         </configuration>
                         <executions>
                             <execution>
