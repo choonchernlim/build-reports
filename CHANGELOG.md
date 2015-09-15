@@ -1,9 +1,8 @@
 # Change Log
 
-## TODO
+## 0.2.2 - 2015-09-15
 
-* Downgrade JaCoCo from 0.7.5.201505241946 to 0.7.4.201502262128 because the reports doesn't show up in Jenkins.
-* Javadoc cannot find Groovy files
+* Downgrade JaCoCo from 0.7.5.201505241946 to 0.7.4.201502262128 because the coverage reports won't show up in Jenkins.
             
 ## 0.2.1 - 2015-07-23
 
