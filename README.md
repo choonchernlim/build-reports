@@ -16,7 +16,7 @@ Add the following configuration to your project's pom.xml:-
     <parent>
         <groupId>com.github.choonchernlim</groupId>
         <artifactId>build-reports</artifactId>
-        <version>0.2.1</version>
+        <version>0.2.2</version>
     </parent>
     
     ...
