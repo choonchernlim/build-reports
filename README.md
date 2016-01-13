@@ -64,6 +64,7 @@ mvn clean test site -Pexternal-release
 * [Maven Javadoc Plugin](https://maven.apache.org/plugins/maven-javadoc-plugin/) - Generates Javadoc.
 * [Maven JXR Plugin](http://maven.apache.org/plugins/maven-jxr-plugin/) - Generates a cross-reference of the project's sources.
 * [JDepend Maven Plugin](http://www.mojohaus.org/jdepend-maven-plugin/) - Generates design quality metrics for each Java package.
+* [Maven Javadoc Plugin](https://maven.apache.org/plugins/maven-javadoc-plugin/) - Generates Javadoc.
 * [Maven PMD Plugin](http://maven.apache.org/plugins/maven-pmd-plugin/) - Generates PMD and CPD reports.
 * [FindBugs Maven Plugin](http://www.mojohaus.org/findbugs-maven-plugin/) - Inspects Java bytecode for occurrences of bug patterns.
 * [TagList Maven Plugin](http://www.mojohaus.org/taglist-maven-plugin/) - Generates a report on various tags found in the code.
