@@ -6,7 +6,7 @@
 
     <groupId>com.github.choonchernlim</groupId>
     <artifactId>build-reports</artifactId>
-    <version>0.2.2</version>
+    <version>0.2.3</version>
     <packaging>pom</packaging>
 
     <name>Build Reports</name>
@@ -14,6 +14,10 @@
         documentation to GitHub
     </description>
     <url>https://github.com/choonchernlim/build-reports</url>
+
+    <prerequisites>
+        <maven>${maven.version}</maven>
+    </prerequisites>
 
     <licenses>
         <license>
@@ -38,27 +42,29 @@
     </scm>
 
     <properties>
+        <maven.version>3.3.9</maven.version>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Plugin versions -->
-        <maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
-        <maven-failsafe-plugin.version>2.18.1</maven-failsafe-plugin.version>
+        <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
+        <maven-failsafe-plugin.version>2.19.1</maven-failsafe-plugin.version>
+        <maven-surefire-report-plugin.version>2.19.1</maven-surefire-report-plugin.version>
         <maven-site-plugin.version>3.4</maven-site-plugin.version>
         <jacoco-maven-plugin.version>0.7.4.201502262128</jacoco-maven-plugin.version>
         <maven-javadoc-plugin.version>2.10.3</maven-javadoc-plugin.version>
-        <maven-project-info-reports-plugin.version>2.8</maven-project-info-reports-plugin.version>
-        <maven-surefire-report-plugin.version>2.18.1</maven-surefire-report-plugin.version>
+        <maven-project-info-reports-plugin.version>2.8.1</maven-project-info-reports-plugin.version>
         <maven-jxr-plugin.version>2.5</maven-jxr-plugin.version>
         <jdepend-maven-plugin.version>2.0</jdepend-maven-plugin.version>
-        <maven-pmd-plugin.version>3.5</maven-pmd-plugin.version>
-        <!-- 3.x targets Java 7 -->
-        <findbugs-maven-plugin.version>2.5.5</findbugs-maven-plugin.version>
+        <maven-pmd-plugin.version>3.6</maven-pmd-plugin.version>
         <taglist-maven-plugin.version>2.4</taglist-maven-plugin.version>
-        <nexus-staging-maven-plugin.version>1.6.5</nexus-staging-maven-plugin.version>
+        <nexus-staging-maven-plugin.version>1.6.6</nexus-staging-maven-plugin.version>
         <maven-source-plugin.version>2.4</maven-source-plugin.version>
         <site-maven-plugin.version>0.12</site-maven-plugin.version>
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+        <versions-maven-plugin.version>2.2</versions-maven-plugin.version>
+        <findbugs-maven-plugin.version>3.0.3</findbugs-maven-plugin.version>
 
         <jacoco.reportPath>${project.build.directory}/coverage-reports/jacoco-ut.exec</jacoco.reportPath>
         <jacoco.itReportPath>${project.build.directory}/coverage-reports/jacoco-it.exec</jacoco.itReportPath>
@@ -77,6 +83,12 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>${versions-maven-plugin.version}</version>
+            </plugin>
+
             <!--
             Surefire Maven Plugin - Runs unit tests.
             http://maven.apache.org/surefire/maven-surefire-plugin/
@@ -379,6 +391,14 @@
     </reporting>
 
     <profiles>
+        <profile>
+            <id>java6</id>
+            <properties>
+                <maven.version>3.2.5</maven.version>
+                <findbugs-maven-plugin.version>2.5.5</findbugs-maven-plugin.version>
+            </properties>
+        </profile>
+
         <!--
         `external-release` profile pushes binary, source code and javadoc to Sonatype OSSRH and generated site to GitHub.
         -->

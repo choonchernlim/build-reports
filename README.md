@@ -3,6 +3,8 @@
 In effort to keep the actual Maven project's pom.xml concise and clean, this parent POM generates various build reports 
 for Maven site and Continuous Integration Servers ([Jenkins](https://jenkins-ci.org/), [SonarQube](http://www.sonarqube.org/), etc). 
 
+It is compatible with Java 6, 7 and 8. To get it working with Java 6, please add `-P java6` to the Maven command line.
+
 This parent POM also includes a profile that allows you to push:-
 * project artifacts to [Sonatype OSSRH (OSS Repository Hosting)](https://oss.sonatype.org) 
 * Maven generated site to project [GitHub](https://github.com/) page
@@ -16,7 +18,7 @@ Add the following configuration to your project's pom.xml:-
     <parent>
         <groupId>com.github.choonchernlim</groupId>
         <artifactId>build-reports</artifactId>
-        <version>0.2.2</version>
+        <version>0.2.3</version>
     </parent>
     
     ...
@@ -49,9 +51,7 @@ mvn clean test site -Pexternal-release
 
 ## Important Notes
 
-* If the JaCoCo web report is not rendering properly in the GitHub page, please read this post for solution: [JaCoCo Web Report Not Rendering Properly in GitHub Pages](http://myshittycode.com/2015/07/22/jacoco-web-report-not-rendering-properly-in-github-pages/)
-* FindBugs Maven Plugin - Using 2.5.5 because 3.x targets Java 7.
-                                    
+* If the JaCoCo web report is not rendering properly in the GitHub page, please read this post for solution: [JaCoCo Web Report Not Rendering Properly in GitHub Pages](http://myshittycode.com/2015/07/22/jacoco-web-report-not-rendering-properly-in-github-pages/)                                    
 
 ## Build Plugins 
 
