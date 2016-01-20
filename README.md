@@ -3,7 +3,9 @@
 In effort to keep the actual Maven project's pom.xml concise and clean, this parent POM generates various build reports 
 for Maven site and Continuous Integration Servers ([Jenkins](https://jenkins-ci.org/), [SonarQube](http://www.sonarqube.org/), etc). 
 
-It is compatible with Java 6, 7 and 8. To get it working with Java 6, please add `-P java6` to the Maven command line.
+Compatible with Java 6, 7 and 8. To get it working with Java 6, Add `-P java6` to the Maven command line.
+
+Tested on Jenkins 1.645 and Sonar 5.3.
 
 This parent POM also includes a profile that allows you to push:-
 * project artifacts to [Sonatype OSSRH (OSS Repository Hosting)](https://oss.sonatype.org) 
@@ -25,28 +27,28 @@ Add the following configuration to your project's pom.xml:-
 </project>
 ```
 
-To generate Maven site with non-integration tests:-
+To generate Maven site with non-integration tests in Jenkins and SonarQube:-
 
 ```xml
-mvn clean test site
+mvn clean test site sonar:sonar -Dsonar.host.url=http://sonar-server
 ```
 
-To generate Maven site with integration tests:-
+To generate Maven site with integration tests in Jenkins and SonarQube:-
 
 ```xml
-mvn clean verify site
+mvn clean verify site sonar:sonar -Dsonar.host.url=http://sonar-server
 ```
 
 To push binary file, source code and Javadoc to Sonatype OSSRH:-
 
 ```xml
-mvn clean deploy -Pexternal-release
+mvn clean deploy -Possrh-deploy
 ```
 
 To push Maven generated site to project GitHub page:-
 
 ```xml
-mvn clean test site -Pexternal-release
+mvn clean test site -Possrh-deploy
 ```
 
 ## Important Notes
@@ -69,7 +71,7 @@ mvn clean test site -Pexternal-release
 * [FindBugs Maven Plugin](http://www.mojohaus.org/findbugs-maven-plugin/) - Inspects Java bytecode for occurrences of bug patterns.
 * [TagList Maven Plugin](http://www.mojohaus.org/taglist-maven-plugin/) - Generates a report on various tags found in the code.
 
-## Profile: "external-release" 
+## Profile: "ossrh-deploy" 
 
 * [Nexus Staging Maven Plugin](https://github.com/sonatype/nexus-maven-plugins/tree/master/staging/maven-plugin) - Deploys artifacts to Sonatype OSSRH.
 * [Maven Source Plugin](https://maven.apache.org/plugins/maven-source-plugin/) - Generates source code.
