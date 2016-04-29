@@ -1,5 +1,20 @@
 # Change Log
 
+## 0.3.0 - 2016-XX-XX
+
+* Minimum Java version is 7.
+* Removed `java6` profile.
+
+* Plugin updates.
+
+```text
+maven-project-info-reports-plugin ...................... 2.8.1 -> 2.9
+maven-site-plugin ...................................... 3.4 -> 3.5.1
+maven-source-plugin .................................... 2.4 -> 3.0.0
+org.jacoco:jacoco-maven-plugin  0.7.5.201505241946 -> 0.7.6.201602180812
+org.sonarsource.scanner.maven:sonar-maven-plugin ..... 3.0.1 -> 3.0.2
+org.sonatype.plugins:nexus-staging-maven-plugin ...... 1.6.6 -> 1.6.7
+```
 
 ## 0.2.4 - 2016-01-20
 
