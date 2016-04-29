@@ -1,6 +1,6 @@
 # Change Log
 
-## 0.3.0 - 2016-XX-XX
+## 0.3.0 - 2016-04-29
 
 * Minimum Java version is 7.
 * Removed `java6` profile.

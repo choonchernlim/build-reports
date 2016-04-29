@@ -3,7 +3,7 @@
 In effort to keep the actual Maven project's pom.xml concise and clean, this parent POM generates various build reports 
 for Maven site and Continuous Integration Servers ([Jenkins](https://jenkins-ci.org/), [SonarQube](http://www.sonarqube.org/), etc). 
 
-Compatible with Java 6, 7 and 8. To get it working with Java 6, Add `-P java6` to the Maven command line.
+Compatible with Java 7 and 8.
 
 Tested on Jenkins 1.645 and Sonar 5.3.
 
@@ -20,7 +20,7 @@ Add the following configuration to your project's pom.xml:-
     <parent>
         <groupId>com.github.choonchernlim</groupId>
         <artifactId>build-reports</artifactId>
-        <version>0.2.4</version>
+        <version>0.3.0</version>
     </parent>
     
     ...
