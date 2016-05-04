@@ -6,7 +6,7 @@
 
     <groupId>com.github.choonchernlim</groupId>
     <artifactId>build-reports</artifactId>
-    <version>0.3.0</version>
+    <version>0.3.1</version>
     <packaging>pom</packaging>
 
     <name>Build Reports</name>
@@ -408,6 +408,26 @@
     </reporting>
 
     <profiles>
+        <!--
+        `sonarqube` profile to fix Sonar 5.x's "Class Not Found" error.
+        http://stackoverflow.com/questions/31528033/sonarqube-class-not-found-during-main-ast-scan
+        -->
+        <profile>
+            <id>sonarqube</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.joda</groupId>
+                    <artifactId>joda-convert</artifactId>
+                    <version>1.8.1</version>
+                </dependency>
+                <dependency>
+                    <groupId>com.google.code.findbugs</groupId>
+                    <artifactId>jsr305</artifactId>
+                    <version>3.0.1</version>
+                </dependency>
+            </dependencies>
+        </profile>
+
         <!--
         `ossrh-deploy` profile pushes binary, source code and javadoc to Sonatype OSSRH and generated site to GitHub.
         -->

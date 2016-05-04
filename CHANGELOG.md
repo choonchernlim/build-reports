@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.3.1 - 2016-05-04
+
+* `sonarqube` profile to fix SonarQube's 5.x "Class Not Found" errors.
+
 ## 0.3.0 - 2016-04-29
 
 * Minimum Java version is 7.

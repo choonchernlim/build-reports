@@ -20,7 +20,7 @@ Add the following configuration to your project's pom.xml:-
     <parent>
         <groupId>com.github.choonchernlim</groupId>
         <artifactId>build-reports</artifactId>
-        <version>0.3.0</version>
+        <version>0.3.1</version>
     </parent>
     
     ...
@@ -30,13 +30,13 @@ Add the following configuration to your project's pom.xml:-
 To generate Maven site with non-integration tests in Jenkins and SonarQube:-
 
 ```xml
-mvn clean test site sonar:sonar -Dsonar.host.url=http://sonar-server
+mvn clean test site -Psonarqube sonar:sonar -Dsonar.host.url=http://sonar-server
 ```
 
 To generate Maven site with integration tests in Jenkins and SonarQube:-
 
 ```xml
-mvn clean verify site sonar:sonar -Dsonar.host.url=http://sonar-server
+mvn clean verify site -Psonarqube sonar:sonar -Dsonar.host.url=http://sonar-server
 ```
 
 To push binary file, source code and Javadoc to Sonatype OSSRH:-
