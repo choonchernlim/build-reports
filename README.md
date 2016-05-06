@@ -51,6 +51,7 @@ mvn clean test site
     </profile>
 </profiles>
 ```
+    
     * Run the following goals and profile:-
 ```xml
 mvn clean test sonar:sonar -Psonarqube
