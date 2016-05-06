@@ -27,14 +27,16 @@ Add the following configuration to your project's pom.xml:-
 </project>
 ```
 
-* Jenkins integration.
+###  Jenkins integration
+
 ```xml
 mvn clean test site
 ```
 
-* SonarQube integration.
+###  SonarQube integration.
 
-    * Create a Maven profile, for example:-
+Create a Maven profile, for example:-
+
 ```xml
 <profiles>
     <profile>
@@ -52,17 +54,20 @@ mvn clean test site
 </profiles>
 ```
     
-    * Run the following goals and profile:-
+Run the following goals and profile:-
+
 ```xml
 mvn clean test sonar:sonar -Psonarqube
 ```
 
-* To push binary file, source code and Javadoc to Sonatype OSSRH:-
+### Push binary file, source code and Javadoc to Sonatype OSSRH
+
 ```xml
 mvn clean deploy -Possrh-deploy
 ```
 
-* To push Maven generated site to project GitHub page:-
+###  Push Maven generated site to project GitHub page
+
 ```xml
 mvn clean test site -Possrh-deploy
 ```
