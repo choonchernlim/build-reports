@@ -85,7 +85,7 @@
 
             <!--
             Sonar Maven Plugin - Publishes result in SonarQube
-            http://docs.sonarqube.org/display/SONAR/Analyzing+with+SonarQube+Scanner+for+Maven
+            http://sonarsource.github.io/sonar-maven/
             -->
             <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>

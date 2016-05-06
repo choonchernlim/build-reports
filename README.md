@@ -91,6 +91,8 @@ mvn clean test site -Possrh-deploy
 * [Maven PMD Plugin](http://maven.apache.org/plugins/maven-pmd-plugin/) - Generates PMD and CPD reports.
 * [FindBugs Maven Plugin](http://www.mojohaus.org/findbugs-maven-plugin/) - Inspects Java bytecode for occurrences of bug patterns.
 * [TagList Maven Plugin](http://www.mojohaus.org/taglist-maven-plugin/) - Generates a report on various tags found in the code.
+* [Sonar Maven Plugin](http://sonarsource.github.io/sonar-maven/) - Publishes results to Sonarqube.
+* [Versions Maven plugin](http://www.mojohaus.org/versions-maven-plugin/) - Handles dependencies and plugins date.
 
 ## Profile: "ossrh-deploy" 
 
