@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.3.2 - 2016-05-06
+
+* Removed `sonarqube` profile and Sonarqube related properties because every project may configure it a little differently.
+* Set `quiet=true` to maven-javadoc-plugin to reduce printout on the log.
+
 ## 0.3.1 - 2016-05-04
 
 * `sonarqube` profile to fix SonarQube's 5.x "Class Not Found" errors.

@@ -6,7 +6,7 @@
 
     <groupId>com.github.choonchernlim</groupId>
     <artifactId>build-reports</artifactId>
-    <version>0.3.1</version>
+    <version>0.3.2</version>
     <packaging>pom</packaging>
 
     <name>Build Reports</name>
@@ -69,19 +69,6 @@
 
         <jacoco.reportPath>${project.build.directory}/coverage-reports/jacoco-ut.exec</jacoco.reportPath>
         <jacoco.itReportPath>${project.build.directory}/coverage-reports/jacoco-it.exec</jacoco.itReportPath>
-
-        <!--
-        Instructs Sonar to reuse reports and configure the report paths for unit tests and code coverage.
-
-        sonar.scm.disabled=true : To prevent "SCM provider was set to "X" but no SCM provider found for this key" error.
-        -->
-        <sonar.scm.disabled>true</sonar.scm.disabled>
-        <sonar.language>java</sonar.language>
-        <sonar.exclusions>**/generated/**,**/scratch/**</sonar.exclusions>
-        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-        <sonar.junit.reportsPath>${project.build.directory}/surefire-reports</sonar.junit.reportsPath>
-        <sonar.jacoco.reportPath>${jacoco.reportPath}</sonar.jacoco.reportPath>
-        <sonar.jacoco.itReportPath>${jacoco.itReportPath}</sonar.jacoco.itReportPath>
     </properties>
 
     <build>
@@ -314,6 +301,13 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>${maven-javadoc-plugin.version}</version>
+                <configuration>
+                    <!--
+                    Shuts off non-error and non-warning messages, leaving only the warnings and errors
+                    appear, making them easier to view.
+                    -->
+                    <quiet>true</quiet>
+                </configuration>
             </plugin>
 
             <!--
@@ -409,26 +403,6 @@
 
     <profiles>
         <!--
-        `sonarqube` profile to fix Sonar 5.x's "Class Not Found" error.
-        http://stackoverflow.com/questions/31528033/sonarqube-class-not-found-during-main-ast-scan
-        -->
-        <profile>
-            <id>sonarqube</id>
-            <dependencies>
-                <dependency>
-                    <groupId>org.joda</groupId>
-                    <artifactId>joda-convert</artifactId>
-                    <version>1.8.1</version>
-                </dependency>
-                <dependency>
-                    <groupId>com.google.code.findbugs</groupId>
-                    <artifactId>jsr305</artifactId>
-                    <version>3.0.1</version>
-                </dependency>
-            </dependencies>
-        </profile>
-
-        <!--
         `ossrh-deploy` profile pushes binary, source code and javadoc to Sonatype OSSRH and generated site to GitHub.
         -->
         <profile>
@@ -511,6 +485,13 @@
                                 </goals>
                             </execution>
                         </executions>
+                        <configuration>
+                            <!--
+                            Shuts off non-error and non-warning messages, leaving only the warnings and errors
+                            appear, making them easier to view.
+                            -->
+                            <quiet>true</quiet>
+                        </configuration>
                     </plugin>
 
                     <!--

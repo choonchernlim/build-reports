@@ -20,33 +20,48 @@ Add the following configuration to your project's pom.xml:-
     <parent>
         <groupId>com.github.choonchernlim</groupId>
         <artifactId>build-reports</artifactId>
-        <version>0.3.1</version>
+        <version>0.3.2</version>
     </parent>
     
     ...
 </project>
 ```
 
-To generate Maven site with non-integration tests in Jenkins and SonarQube:-
-
+* Jenkins integration.
 ```xml
-mvn clean test site -Psonarqube sonar:sonar -Dsonar.host.url=http://sonar-server
+mvn clean test site
 ```
 
-To generate Maven site with integration tests in Jenkins and SonarQube:-
+* SonarQube integration.
 
+    * Create a Maven profile, for example:-
 ```xml
-mvn clean verify site -Psonarqube sonar:sonar -Dsonar.host.url=http://sonar-server
+<profiles>
+    <profile>
+        <id>sonarqube</id>
+        <properties>
+            <sonar.host.url>...</sonar.host.url>
+            <sonar.sources>src/main/java</sonar.sources>
+            <sonar.tests>src/test/java</sonar.tests>
+            <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+            <sonar.junit.reportsPath>${project.build.directory}/surefire-reports</sonar.junit.reportsPath>
+            <sonar.jacoco.reportPath>${jacoco.reportPath}</sonar.jacoco.reportPath>
+            <sonar.jacoco.itReportPath>${jacoco.itReportPath}</sonar.jacoco.itReportPath>
+        </properties>
+    </profile>
+</profiles>
+```
+    * Run the following goals and profile:-
+```xml
+mvn clean test sonar:sonar -Psonarqube
 ```
 
-To push binary file, source code and Javadoc to Sonatype OSSRH:-
-
+* To push binary file, source code and Javadoc to Sonatype OSSRH:-
 ```xml
 mvn clean deploy -Possrh-deploy
 ```
 
-To push Maven generated site to project GitHub page:-
-
+* To push Maven generated site to project GitHub page:-
 ```xml
 mvn clean test site -Possrh-deploy
 ```
