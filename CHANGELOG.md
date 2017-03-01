@@ -1,5 +1,21 @@
 # Change Log
 
+## 0.3.3 - 2017-02-27
+
+* Plugin updates. 
+    * `maven-source-plugin` not updated because version greater than `3.0.2` requires Java 8.
+
+```text
+maven-javadoc-plugin ............................... 2.10.3 -> 2.10.4
+maven-pmd-plugin ......................................... 3.6 -> 3.7
+maven-site-plugin ...................................... 3.5.1 -> 3.6
+maven-source-plugin .................................. 3.0.0 -> 3.0.1
+org.codehaus.mojo:findbugs-maven-plugin .............. 3.0.3 -> 3.0.4
+org.codehaus.mojo:versions-maven-plugin .................. 2.2 -> 2.3
+org.jacoco:jacoco-maven-plugin .......... 0.7.6.201602180812 -> 0.7.9
+org.sonatype.plugins:nexus-staging-maven-plugin ...... 1.6.7 -> 1.6.8
+```
+
 ## 0.3.2 - 2016-05-06
 
 * Removed `sonarqube` profile and Sonarqube related properties because every project may configure it a little differently.
