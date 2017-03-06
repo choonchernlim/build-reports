@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.3.4 - 2017-03-06
+
+* Configured `maven-pmd-plugin` to ignore `target/generated-sources`.
+
 ## 0.3.3 - 2017-02-27
 
 * Plugin updates. 
