@@ -6,7 +6,7 @@
 
     <groupId>com.github.choonchernlim</groupId>
     <artifactId>build-reports</artifactId>
-    <version>0.3.4</version>
+    <version>0.3.5</version>
     <packaging>pom</packaging>
 
     <name>Build Reports</name>
@@ -512,6 +512,15 @@
                                 <goals>
                                     <goal>sign</goal>
                                 </goals>
+                                <configuration>
+                                    <!--
+                                    GPG 2.1 requires this setting to pick up `gpg.passphrase` defined in `settings.xml`.
+                                    -->
+                                    <gpgArguments>
+                                        <arg>--pinentry-mode</arg>
+                                        <arg>loopback</arg>
+                                    </gpgArguments>
+                                </configuration>
                             </execution>
                         </executions>
                     </plugin>

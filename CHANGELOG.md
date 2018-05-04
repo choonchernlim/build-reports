@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.3.5 - 2018-05-04
+
+* `maven-gpg-plugin` - Throws `gpg: signing failed: No such file or directory` when doing `mvn deploy`.
+
 ## 0.3.4 - 2017-03-06
 
 * Configured `maven-pmd-plugin` to ignore `target/generated-sources`.
